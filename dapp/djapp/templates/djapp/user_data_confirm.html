@@ -16,16 +16,16 @@
 
 
 
-    <a href="{% url 'django_app:user_data_input' %}" class="btn btn-primary btn-lg">戻る</a>
+    {% comment %} <a href="{% url 'djapp:user_data_input' %}" class="btn btn-primary btn-lg">戻る</a> {% endcomment %}
 
     <hr>
 
-    <form action="{% url 'django_app:user_data_create' %}" method="POST">
+    {% comment %} <form action="{% url 'django_app:user_data_create' %}" method="POST">
 
         <button type="submit" class="btn btn-primary btn-lg">送信</button>
 
         {% csrf_token %}
 
-    </form>
+    </form> {% endcomment %}
 
 {% endblock %}

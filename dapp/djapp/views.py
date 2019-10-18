@@ -5,19 +5,20 @@ from .forms import kakikomiForm
 
 def kakikomi(request):
     if request.method == 'GET':
+        print('test')
         f = kakikomiForm(request.session.get('form_data'))
     else:
         f = kakikomiForm(request.POST)
         if f.is_valid:
             request.session['form_data'] = request.POST
-            return redirect('djapp:user_data_confirm.html')
+            return redirect('djapp:user_data_confirm')
     return render(request, 'djapp/index.html', {'form1': f})
 
 
 def user_data_confirm(request):
     session_form_data = request.session.get('form_data')
-    if session_form_data is None:
-        return redirect('djapp:kakikomi')
+    # if session_form_data is None:
+    #     return redirect('djapp:kakikomi')
     
     context = {
         'form': kakikomiForm(session_form_data)
