@@ -4,9 +4,9 @@ from .forms import kakikomiForm
 # Create your views here.
 
 def kakikomi(request):
-    if request.method == 'GET':
+    if request.method == 'GET': #確認画面から戻った時
         f = kakikomiForm(request.session.get('form_data'))
-    else:
+    else:  #基本的にはPOST、送信ボタンを押した時
         f = kakikomiForm(request.POST)
         if f.is_valid:
             request.session['form_data'] = request.POST
