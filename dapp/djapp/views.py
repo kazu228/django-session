@@ -10,7 +10,7 @@ def kakikomi(request):
         f = kakikomiForm(request.POST)
         if f.is_valid:
             request.session['form_data'] = request.POST
-            return redirect('djapp:user_data_confirm')
+            return redirect('djapp:user_data_confirm.html')
     return render(request, 'djapp/index.html', {'form1': f})
 
 
