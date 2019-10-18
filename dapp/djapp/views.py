@@ -10,6 +10,7 @@ def kakikomi(request):
         f = kakikomiForm(request.POST)
         if f.is_valid:  #ヴァリデーションチェック
             request.session['form_data'] = request.POST
+            # POSTで受けたデータをセッションに書き込む
             return redirect('djapp:user_data_confirm')
     return render(request, 'djapp/index.html', {'form1': f})
 
