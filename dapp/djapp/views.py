@@ -8,7 +8,7 @@ def kakikomi(request):
         f = kakikomiForm(request.session.get('form_data'))
     else:  #基本的にはPOST、送信ボタンを押した時
         f = kakikomiForm(request.POST)
-        if f.is_valid:
+        if f.is_valid:  #ヴァリデーションチェック
             request.session['form_data'] = request.POST
             return redirect('djapp:user_data_confirm')
     return render(request, 'djapp/index.html', {'form1': f})
