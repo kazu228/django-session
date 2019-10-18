@@ -17,10 +17,12 @@ def kakikomi(request):
 
 def user_data_confirm(request):
     session_form_data = request.session.get('form_data')
+    # セッションデータを代入
     if session_form_data is None:
         return redirect('djapp:kakikomi')
     
     context = {
         'form': kakikomiForm(session_form_data)
+        # フォーム形式で出力するため
     }
     return render(request, 'djapp/user_data_confirm.html', context)
