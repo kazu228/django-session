@@ -5,5 +5,5 @@ from .forms import kakikomiForm
 
 def kakikomi(request):
     f = kakikomiForm()
-    return HttpResponse(f)
+    return render(request, 'djapp/index.html', {'form1': f})
 
