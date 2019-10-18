@@ -22,4 +22,4 @@ def user_data_confirm(request):
     context = {
         'form': kakikomiForm(session_form_data)
     }
-    return render(request, 'djapp/user_data_confirm', context)
+    return render(request, 'djapp/user_data_confirm.html', context)
