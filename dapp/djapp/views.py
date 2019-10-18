@@ -5,7 +5,6 @@ from .forms import kakikomiForm
 
 def kakikomi(request):
     if request.method == 'GET':
-        print('test')
         f = kakikomiForm(request.session.get('form_data'))
     else:
         f = kakikomiForm(request.POST)
@@ -17,8 +16,8 @@ def kakikomi(request):
 
 def user_data_confirm(request):
     session_form_data = request.session.get('form_data')
-    # if session_form_data is None:
-    #     return redirect('djapp:kakikomi')
+    if session_form_data is None:
+        return redirect('djapp:kakikomi')
     
     context = {
         'form': kakikomiForm(session_form_data)
