@@ -14,16 +14,16 @@
 
     {% endfor %}
     
-    {% comment %} <a href="{% url 'djapp:user_data_input' %}" class="btn btn-primary btn-lg">戻る</a> {% endcomment %}
+    <a href="{% url 'djapp:kakikomi' %}" class="btn btn-primary btn-lg">戻る</a>
 
     <hr>
 
-    {% comment %} <form action="{% url 'djapp:user_data_create' %}" method="POST">
+    <form action="{% url 'djapp:user_data_create' %}" method="POST">
 
         <button type="submit" class="btn btn-primary btn-lg">送信</button>
 
         {% csrf_token %}
 
-    </form> {% endcomment %}
+    </form>
 
 {% endblock %}
