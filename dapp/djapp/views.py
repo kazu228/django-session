@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 #from django.http import HttpResponse
 from .forms import kakikomiForm
+from .models import kakikomiModel
 # Create your views here.
 
 def kakikomi(request):
@@ -43,3 +44,7 @@ def user_data_create(request):
         'form': form
     }
     return render(request, 'djapp/user_data_input.html', context)
+
+class UserList(generic.ListView):
+    model = kakikomiModel
+    template_name = "user_list.html"
