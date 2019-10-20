@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 #from django.http import HttpResponse
 from .forms import kakikomiForm
 from .models import kakikomiModel
+from django.views import generic
 # Create your views here.
 
 def kakikomi(request):
