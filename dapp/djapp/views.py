@@ -45,12 +45,12 @@ class user_data_create(generic.CreateView):
     model = kakikomiModel
 
     form_class = kakikomiForm
-    success_url = reverse_lazy('user_list')
+#     success_url = reverse_lazy('user_list')
     # context = {
     #     'form': form
     # }
     # return render(request, 'djapp/user_data_input.html', context)
 
-class UserList(generic.ListView):
-    model = kakikomiModel
-    template_name = "user_list.html"
+# class UserList(generic.ListView):
+#     model = kakikomiModel
+#     template_name = "user_list.html"
