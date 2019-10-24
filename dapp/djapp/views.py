@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 #from django.http import HttpResponse
 from .forms import kakikomiForm
 from .models import kakikomiModel
-from django.views import generic
 from django.urls import reverse_lazy
 # Create your views here.
 
@@ -41,16 +40,15 @@ def user_data_confirm(request):
     
 #     form.save()
 #     return redirect('djapp:user_list')
-class user_data_create(generic.CreateView):
-    model = kakikomiModel
+def user_data_create(request):
+    session_form_data = request.session.pop('form_data', None)
+    if session_form_data is None:
+        return redirect('djapp:user_data_input')
 
-    form_class = kakikomiForm
-#     success_url = reverse_lazy('user_list')
-    # context = {
-    #     'form': form
-    # }
-    # return render(request, 'djapp/user_data_input.html', context)
-
+    form = kakikomiForm(session_form_data)
+    if form.is_valid():
+        form.save()
+        return redirect('djapp:kakikomi')
 # class UserList(generic.ListView):
 #     model = kakikomiModel
 #     template_name = "user_list.html"
